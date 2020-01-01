@@ -305,36 +305,36 @@ struct TestObject : public Serializable
     {
         const TestContext & context = *(const TestContext*) stream.GetContext();
 
-        serialize_int( stream, data.a, context.min, context.max );
-        serialize_int( stream, data.b, context.min, context.max );
+        yojimbo_serialize_int( stream, data.a, context.min, context.max );
+        yojimbo_serialize_int( stream, data.b, context.min, context.max );
 
-        serialize_int( stream, data.c, -100, 10000 );
+        yojimbo_serialize_int( stream, data.c, -100, 10000 );
 
-        serialize_bits( stream, data.d, 6 );
-        serialize_bits( stream, data.e, 8 );
-        serialize_bits( stream, data.f, 7 );
+        yojimbo_serialize_bits( stream, data.d, 6 );
+        yojimbo_serialize_bits( stream, data.e, 8 );
+        yojimbo_serialize_bits( stream, data.f, 7 );
 
-        serialize_align( stream );
+        yojimbo_serialize_align( stream );
 
-        serialize_bool( stream, data.g );
+        yojimbo_serialize_bool( stream, data.g );
 
-        serialize_check( stream );
+        yojimbo_serialize_check( stream );
 
-        serialize_int( stream, data.numItems, 0, MaxItems - 1 );
+        yojimbo_serialize_int( stream, data.numItems, 0, MaxItems - 1 );
         for ( int i = 0; i < data.numItems; ++i )
-            serialize_bits( stream, data.items[i], 8 );
+            yojimbo_serialize_bits( stream, data.items[i], 8 );
 
-        serialize_float( stream, data.float_value );
+        yojimbo_serialize_float( stream, data.float_value );
 
-        serialize_double( stream, data.double_value );
+        yojimbo_serialize_double( stream, data.double_value );
 
-        serialize_uint64( stream, data.uint64_value );
+        yojimbo_serialize_uint64( stream, data.uint64_value );
 
-        serialize_bytes( stream, data.bytes, sizeof( data.bytes ) );
+        yojimbo_serialize_bytes( stream, data.bytes, sizeof( data.bytes ) );
 
-        serialize_string( stream, data.string, sizeof( data.string ) );
+        yojimbo_serialize_string( stream, data.string, sizeof( data.string ) );
 
-        serialize_check( stream );
+        yojimbo_serialize_check( stream );
 
         return true;
     }
